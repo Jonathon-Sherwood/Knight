@@ -18,7 +18,9 @@ public class PlayerController : MonoBehaviour
     public float jumpBufferLength = 0.1f; //Adds a slight distance the player can press jump before hitting the ground where it still registers.
     private float jumpBufferCount; //Holds the value of the jump buffer length.
 
-    private bool canDoubleJump; //Stores the information if the player is able to double jump.
+    public int extraJumps; //Adjustbale amount of multi-jumps in inspector.
+    private int currentExtraJumps; //Holds the current value of extra jumps used.
+
     private bool flipX; //Holds whether or not the player is already flipped on the x axis.
 
     public LayerMask groundLayerMask; //Allows the IsGrounded raycast to only hit the floor.
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
+        currentExtraJumps = extraJumps;
     }
 
     private void Update()
@@ -46,36 +49,41 @@ public class PlayerController : MonoBehaviour
         }
 
         //Adds a buffer to when the player presses the jump button just before hitting the floor.
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && currentExtraJumps > 0)
         {
             jumpBufferCount = jumpBufferLength;
+            currentExtraJumps--;
         }
         else
         {
             jumpBufferCount -= Time.deltaTime;
         }
+
+        if (IsGrounded())
+        {
+            currentExtraJumps = extraJumps; //Resets extra jumps on contact with ground.
+        }
     }
 
     private void Movement()
     {
-        float xMovement = Input.GetAxis("Horizontal") * speed;         //Sets a float to the value added by Unity's input for horizontal.
+        float xMovement = Input.GetAxis("Horizontal") * speed;  //Sets a float to the value added by Unity's input for horizontal.
 
-        rb.velocity = new Vector2(xMovement, rb.velocity.y);           //The velocity is always tied to the input from Unity.
+        rb.velocity = new Vector2(xMovement, rb.velocity.y);  //The velocity is always tied to the input from Unity.
 
-        SpriteFlip(xMovement);
+        SpriteFlip(xMovement);  //Sets the sprite flip method to whatever the current axis is.
     }
 
     //Sprite direction based on movement using FlipX component
-    private void SpriteFlip(float hMovement)
+    private void SpriteFlip(float xMovement)
     {
-
-        if (hMovement < -0.1f && flipX)
+        if (xMovement < -0.1f && flipX)
         {
             transform.Rotate(0f, 180f, 0f);
             flipX = false;
         }
 
-        if (hMovement > 0.1f && !flipX)
+        if (xMovement > 0.1f && !flipX)
         {
             transform.Rotate(0f, 180f, 0f);
             flipX = true;
@@ -85,16 +93,21 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         //Jumping, giving the player a buffer before being unable to jump.
-        if (jumpBufferCount >= 0 && hangCounter > 0f)
+        if (jumpBufferCount >= 0 && hangCounter > 0f && currentExtraJumps == 0) {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-
-        //Adjustable jump height based on length of spacebar pressed.
-        if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-            jumpBufferCount = 0;
-            hangCounter = 0;
         }
+        else if (currentExtraJumps > 0 && Input.GetKeyDown(KeyCode.Space)) //Allows the player to extra jump regardless of being near the floor.
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+
+            //Adjustable jump height based on length of spacebar pressed.
+            if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+                jumpBufferCount = 0;
+                hangCounter = 0;
+            }
     }
 
     private bool IsGrounded()
