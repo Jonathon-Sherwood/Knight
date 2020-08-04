@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb; //Calls the Rigidbody on the player gameobject.
     private BoxCollider2D boxCollider; //Calls the boxcollider on the player gameobject.
+    private SpriteRenderer sprite; //Calls the sprite renderer on the player gameobject.
     
 
     public float hangTime = 0.2f; //Changes how long the player can jump after walking off platform.
@@ -17,12 +18,16 @@ public class PlayerController : MonoBehaviour
     public float jumpBufferLength = 0.1f; //Adds a slight distance the player can press jump before hitting the ground where it still registers.
     private float jumpBufferCount; //Holds the value of the jump buffer length.
 
+    private bool canDoubleJump; //Stores the information if the player is able to double jump.
+    private bool flipX; //Holds whether or not the player is already flipped on the x axis.
+
     public LayerMask groundLayerMask; //Allows the IsGrounded raycast to only hit the floor.
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -56,6 +61,25 @@ public class PlayerController : MonoBehaviour
         float xMovement = Input.GetAxis("Horizontal") * speed;         //Sets a float to the value added by Unity's input for horizontal.
 
         rb.velocity = new Vector2(xMovement, rb.velocity.y);           //The velocity is always tied to the input from Unity.
+
+        SpriteFlip(xMovement);
+    }
+
+    //Sprite direction based on movement using FlipX component
+    private void SpriteFlip(float hMovement)
+    {
+
+        if (hMovement < -0.1f && flipX)
+        {
+            transform.Rotate(0f, 180f, 0f);
+            flipX = false;
+        }
+
+        if (hMovement > 0.1f && !flipX)
+        {
+            transform.Rotate(0f, 180f, 0f);
+            flipX = true;
+        }
     }
 
     private void Jump()
