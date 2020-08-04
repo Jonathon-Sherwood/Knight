@@ -21,7 +21,9 @@ public class PlayerController : MonoBehaviour
     public int extraJumps; //Adjustbale amount of multi-jumps in inspector.
     private int currentExtraJumps; //Holds the current value of extra jumps used.
 
-    private bool flipX; //Holds whether or not the player is already flipped on the x axis.
+    [HideInInspector]public bool flipX; //Holds whether or not the player is already flipped on the x axis.
+
+    [HideInInspector]public bool canMove = true; //Holds a value of the player being able to move.
 
     public LayerMask groundLayerMask; //Allows the IsGrounded raycast to only hit the floor.
 
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Jump();
-        Movement();
+        if (canMove) Movement();
 
         //Used to hold a brief timer between player leaving the ground and being able to jump.
         if (IsGrounded())
@@ -77,16 +79,16 @@ public class PlayerController : MonoBehaviour
     //Sprite direction based on movement using FlipX component
     private void SpriteFlip(float xMovement)
     {
-        if (xMovement < -0.1f && flipX)
-        {
-            transform.Rotate(0f, 180f, 0f);
-            flipX = false;
-        }
-
-        if (xMovement > 0.1f && !flipX)
+        if (xMovement < -0.1f && !flipX)
         {
             transform.Rotate(0f, 180f, 0f);
             flipX = true;
+        }
+
+        if (xMovement > 0.1f && flipX)
+        {
+            transform.Rotate(0f, 180f, 0f);
+            flipX = false;
         }
     }
 
@@ -110,6 +112,8 @@ public class PlayerController : MonoBehaviour
             }
     }
 
+
+    //Checks to see if the player is touching the floor.
     private bool IsGrounded()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, .1f, groundLayerMask);
