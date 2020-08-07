@@ -67,11 +67,13 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
+        print(currentExtraJumps);
         //Jumping, giving the player a buffer before being unable to jump.
         if (currentExtraJumps >= 0 && Input.GetKeyDown(KeyCode.Space)) {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             hasJumped = true;
             currentExtraJumps--;
+            print("jump attempted");
         }
 
         //If the player hasn't jumped but is falling, they lose an extra jump.
@@ -92,12 +94,11 @@ public class PlayerController : MonoBehaviour
         if (IsGrounded())
         {
             hangCounter = hangTime;
-            
-            if (rb.velocity.y == 0) //Ensures that variables don't reset the same frame the player leaves the ground.
-            {
-                currentExtraJumps = extraJumps;
+            //if (rb.velocity.y > -.13f && rb.velocity.y < .13f) //Ensures that variables don't reset the same frame the player leaves the ground.
+            //{
+            currentExtraJumps = extraJumps;
                 hasJumped = false;
-            }
+            //}
         }
         else if (!IsGrounded() && currentExtraJumps == extraJumps)
         {
@@ -109,7 +110,7 @@ public class PlayerController : MonoBehaviour
     //Checks to see if the player is touching the floor.
     private bool IsGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, .1f, groundLayerMask);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, .2f, groundLayerMask);
         return raycastHit.collider != null;
     }
 }
