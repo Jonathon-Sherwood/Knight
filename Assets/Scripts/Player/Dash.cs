@@ -35,10 +35,12 @@ public class Dash : MonoBehaviour
         }
     }
 
+    //This consistently checks to see if dashing is available, and pushes the player forward if so.
     private void CheckDash()
     {
         if (isDashing)
         {
+            //Pushes player forward of facing direction and locks movement
             if (dashTimeLeft > 0)
             {
                 playerController.canMove = false;
@@ -52,12 +54,14 @@ public class Dash : MonoBehaviour
                 }
                 dashTimeLeft -= Time.deltaTime;
 
+                //Sets each after image location within a set distance.
                 if (Mathf.Abs(transform.position.x - lastImageXpos) > distanceBetweenImages)
                 {
                     PlayerAfterImagePool.instance.GetFromPool();
                     lastImageXpos = transform.position.x;
                 }
             }
+            //Returns control to player and stops dashing.
             if(dashTimeLeft <= 0)
             {
                 playerController.canMove = true;
@@ -66,6 +70,7 @@ public class Dash : MonoBehaviour
         }
     }
 
+    //This will allow the checkdash method to reset variables and allow for dashing
     private void AttemptToDash()
     {
         isDashing = true;

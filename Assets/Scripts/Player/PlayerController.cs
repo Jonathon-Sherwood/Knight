@@ -15,11 +15,10 @@ public class PlayerController : MonoBehaviour
     public float hangTime = 0.2f; //Changes how long the player can jump after walking off platform.
     private float hangCounter; //Holds how long the player has been off of a platform.
 
-    public float jumpBufferLength = 0.1f; //Adds a slight distance the player can press jump before hitting the ground where it still registers.
-    private float jumpBufferCount; //Holds the value of the jump buffer length.
-
     public int extraJumps; //Adjustbale amount of multi-jumps in inspector.
     private int currentExtraJumps; //Holds the current value of extra jumps used.
+
+    private bool hasJumped = false; //Used to check if player jumped or just fell.
 
     [HideInInspector]public bool flipX; //Holds whether or not the player is already flipped on the x axis.
 
@@ -39,32 +38,6 @@ public class PlayerController : MonoBehaviour
     {
         Jump();
         if (canMove) Movement();
-
-        //Used to hold a brief timer between player leaving the ground and being able to jump.
-        if (IsGrounded())
-        {
-            hangCounter = hangTime;
-        }
-        else
-        {
-            hangCounter -= Time.deltaTime;
-        }
-
-        //Adds a buffer to when the player presses the jump button just before hitting the floor.
-        if (Input.GetKeyDown(KeyCode.Space) && currentExtraJumps > 0)
-        {
-            jumpBufferCount = jumpBufferLength;
-            currentExtraJumps--;
-        }
-        else
-        {
-            jumpBufferCount -= Time.deltaTime;
-        }
-
-        if (IsGrounded())
-        {
-            currentExtraJumps = extraJumps; //Resets extra jumps on contact with ground.
-        }
     }
 
     private void Movement()
@@ -95,21 +68,41 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         //Jumping, giving the player a buffer before being unable to jump.
-        if (jumpBufferCount >= 0 && hangCounter > 0f && currentExtraJumps == 0) {
+        if (currentExtraJumps >= 0 && Input.GetKeyDown(KeyCode.Space)) {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
-        else if (currentExtraJumps > 0 && Input.GetKeyDown(KeyCode.Space)) //Allows the player to extra jump regardless of being near the floor.
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            hasJumped = true;
+            currentExtraJumps--;
         }
 
-            //Adjustable jump height based on length of spacebar pressed.
-            if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0)
+        //If the player hasn't jumped but is falling, they lose an extra jump.
+        if(hangCounter <= 0f && hasJumped == false)
+        {
+            hasJumped = true;
+            currentExtraJumps--;
+        }
+
+        //Adjustable jump height based on length of spacebar pressed.
+        if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            hangCounter = 0;
+        }
+
+        //Used to hold a brief timer between player leaving the ground and being able to jump.
+        if (IsGrounded())
+        {
+            hangCounter = hangTime;
+            
+            if (rb.velocity.y == 0) //Ensures that variables don't reset the same frame the player leaves the ground.
             {
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-                jumpBufferCount = 0;
-                hangCounter = 0;
+                currentExtraJumps = extraJumps;
+                hasJumped = false;
             }
+        }
+        else if (!IsGrounded() && currentExtraJumps == extraJumps)
+        {
+            hangCounter -= Time.deltaTime;
+        }
     }
 
 
