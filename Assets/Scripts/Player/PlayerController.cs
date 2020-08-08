@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
             //if (rb.velocity.y > -.13f && rb.velocity.y < .13f) //Ensures that variables don't reset the same frame the player leaves the ground.
             //{
             currentExtraJumps = extraJumps;
-                hasJumped = false;
+            hasJumped = false;
             //}
         }
         else if (!IsGrounded() && currentExtraJumps == extraJumps)
