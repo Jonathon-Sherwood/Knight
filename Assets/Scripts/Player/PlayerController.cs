@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb; //Calls the Rigidbody on the player gameobject.
     private BoxCollider2D boxCollider; //Calls the boxcollider on the player gameobject.
     private SpriteRenderer sprite; //Calls the sprite renderer on the player gameobject.
+    private Animator anim; //Calls the animator on the player gameobject.
+    private Dash dash; //Allows the script to know if the player is dashing.
     
 
     public float hangTime = 0.2f; //Changes how long the player can jump after walking off platform.
@@ -31,12 +33,15 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        dash = gameObject.GetComponent<Dash>();
         currentExtraJumps = extraJumps;
     }
 
     private void Update()
     {
         Jump();
+        AnimationControl();
         if (canMove) Movement();
     }
 
@@ -67,13 +72,12 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        print(currentExtraJumps);
         //Jumping, giving the player a buffer before being unable to jump.
         if (currentExtraJumps >= 0 && Input.GetKeyDown(KeyCode.Space)) {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             hasJumped = true;
             currentExtraJumps--;
-            print("jump attempted");
+            anim.Play("Player_Jump");
         }
 
         //If the player hasn't jumped but is falling, they lose an extra jump.
@@ -94,16 +98,61 @@ public class PlayerController : MonoBehaviour
         if (IsGrounded())
         {
             hangCounter = hangTime;
-            //if (rb.velocity.y > -.13f && rb.velocity.y < .13f) //Ensures that variables don't reset the same frame the player leaves the ground.
-            //{
+            if (rb.velocity.y > -.13f && rb.velocity.y < .13f) //Ensures that variables don't reset the same frame the player leaves the ground.
+            {
             currentExtraJumps = extraJumps;
             hasJumped = false;
-            //}
+                anim.SetBool("Grounded", true);
+            }
         }
         else if (!IsGrounded() && currentExtraJumps == extraJumps)
         {
             hangCounter -= Time.deltaTime;
+            anim.SetBool("Grounded", false);
         }
+    }
+
+    private void AnimationControl()
+    {
+        if((rb.velocity.x > .01 || rb.velocity.x < -.01) && canMove)
+        {
+            anim.SetBool("Running", true);
+        } else
+        {
+            anim.SetBool("Running", false);
+        }
+
+        if (dash.isDashing)
+        {
+            anim.Play("Player_Dash");
+        }
+
+        if (IsGrounded() && rb.velocity.y > -.13f && rb.velocity.y < .13f) //Ensures that variables don't reset the same frame the player leaves the ground.
+        {
+            anim.SetBool("Grounded", true);
+        } else
+        {
+            anim.SetBool("Grounded", false);
+        }
+
+        //Placeholders to test animations
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            anim.Play("Player_Magic");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            anim.Play("Player_Attack");
+        }
+
+        if (Input.GetKey(KeyCode.Mouse3))
+        {
+            anim.Play("Player_Death");
+            rb.constraints = RigidbodyConstraints2D.None;
+            rb.gravityScale = 1;
+        }
+
     }
 
 

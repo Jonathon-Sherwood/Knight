@@ -5,7 +5,7 @@ using UnityEngine;
 public class Dash : MonoBehaviour
 {
     private Rigidbody2D rb; //Holds the rigid body.
-    private bool isDashing; // Used to enable methods based on dashing.
+    [HideInInspector] public bool isDashing; // Used to enable methods based on dashing.
     private float dashTimeLeft; //Holds the current time of dash cooldown.
     private float lastImageXpos; //Tracks the x coordinate of last placed after image.
     private float lastDash = -100; //Used to check for cooldown based on last time dash used.
