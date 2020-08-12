@@ -10,6 +10,8 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange;
     public LayerMask enemyLayers;
 
+    public int attackDamage;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -36,10 +38,11 @@ public class PlayerCombat : MonoBehaviour
         //Damages enemies in hitenemy range
         foreach(Collider2D enemy in hitEnemies)
         {
-            print(enemy.name);
+            enemy.GetComponent<EnemyTakeDamage>().TakeDamage(attackDamage);
         }
     }
 
+    //Used to see attack range in inspector
     private void OnDrawGizmosSelected()
     {
         if(attackPoint == null)
