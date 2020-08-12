@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2395996737500964819}
   - component: {fileID: 2395996737500964828}
   - component: {fileID: 2395996737500964817}
+  - component: {fileID: 1935185325811153068}
   - component: {fileID: 2395996737500964829}
   - component: {fileID: 2395996737500964830}
   - component: {fileID: 2395996737500964816}
@@ -124,6 +125,18 @@ MonoBehaviour:
   dashSpeed: 50
   distanceBetweenImages: 0.1
   dashCooldown: 2.5
+--- !u!114 &1935185325811153068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395996737500964831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0596d458253b3bf4196ba049c4edc039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &2395996737500964829
 Rigidbody2D:
   serializedVersion: 4
