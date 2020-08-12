@@ -141,11 +141,6 @@ public class PlayerController : MonoBehaviour
             anim.Play("Player_Magic");
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            anim.Play("Player_Attack");
-        }
-
         if (Input.GetKey(KeyCode.Mouse3))
         {
             anim.Play("Player_Death");
