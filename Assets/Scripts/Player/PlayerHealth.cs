@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public PhysicsMaterial2D frictionPhysics; //Swaps to a new physics material on stun.
 
     public float maxHealth; //Adjustable health for player.
-    float currentHealth; //Holds the current amount of health on player.
+    [HideInInspector] public float currentHealth; //Holds the current amount of health on player.
 
     public float invulTimer; //Causes the player to be invulnerable after taking damage.
     public float stunTime; //Adjustable amount of time the player is stunned on hit.
@@ -34,9 +34,17 @@ public class PlayerHealth : MonoBehaviour
         currentPhysics = rb.sharedMaterial;
     }
 
+    private void Update()
+    {
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
+
     public void TakeDamage(int damage, Vector2 direction)
     {
-        if (currentHealth > 20)
+        if (currentHealth > 1)
         {
             rb.velocity = new Vector2(Mathf.Sign(direction.normalized.x) * deathKick * 0.2f, 5f);
             StartCoroutine(Stunned());

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2395996737500964828}
   - component: {fileID: 2395996737500964817}
   - component: {fileID: 1935185325811153068}
+  - component: {fileID: 3957570896844628775}
   - component: {fileID: 1949970057673261560}
   - component: {fileID: 2395996737500964829}
   - component: {fileID: 2395996737500964830}
@@ -145,6 +146,18 @@ MonoBehaviour:
     m_Bits: 512
   attackDamage: 50
   attackRate: 2.75
+--- !u!114 &3957570896844628775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395996737500964831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9be7d11f8a4a449a91c60f3ffd58c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1949970057673261560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,10 +172,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSprite: {fileID: 3753270015839330337, guid: c8fa2f432fa73fd43802a8ef0723970e,
     type: 3}
-  maxHealth: 100
+  frictionPhysics: {fileID: 6200000, guid: ecd654a0892d2ee4ebef4ed1c3e19e66, type: 2}
+  maxHealth: 5
+  currentHealth: 0
   invulTimer: 2
   stunTime: 0.5
-  deathKick: -20
+  deathKick: -30
 --- !u!50 &2395996737500964829
 Rigidbody2D:
   serializedVersion: 4

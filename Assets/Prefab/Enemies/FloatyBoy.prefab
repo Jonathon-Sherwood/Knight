@@ -143,7 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  hurtSprite: {fileID: 0}
+  hurtSprite: {fileID: -893384115060033818, guid: 8789f65e53de2ce43a6db634e80a8b0d,
+    type: 3}
 --- !u!114 &1957314749251852897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afafdadaa2302a541b57326b95b02bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 1
 --- !u!95 &6566897242651394741
 Animator:
   serializedVersion: 3
@@ -189,9 +190,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004759729, y: 0}
+  m_Offset: {x: -0.004759729, y: 0.0048360825}
   serializedVersion: 2
-  m_Radius: 0.30485177
+  m_Radius: 0.34515238
 --- !u!50 &6566897242651394739
 Rigidbody2D:
   serializedVersion: 4
