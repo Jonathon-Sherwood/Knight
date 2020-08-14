@@ -8,8 +8,10 @@ public class PlayerHealth : MonoBehaviour
     Rigidbody2D rb; //Calls the rigidbody on this object.
     SpriteRenderer sprite; //Calls the sprite renderer on this object.
     Animator anim; //Calls the animator on this object.
+    PhysicsMaterial2D currentPhysics; //Holds onto the physics property already used.
 
     public Sprite deathSprite; //Replaces animator and sprite with a dead version.
+    public PhysicsMaterial2D frictionPhysics; //Swaps to a new physics material on stun.
 
     public float maxHealth; //Adjustable health for player.
     float currentHealth; //Holds the current amount of health on player.
@@ -29,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
         anim = GetComponent<Animator>();
         currentHealth = maxHealth;
         originalGravity = rb.gravityScale;
+        currentPhysics = rb.sharedMaterial;
     }
 
     public void TakeDamage(int damage, Vector2 direction)
@@ -61,12 +64,12 @@ public class PlayerHealth : MonoBehaviour
 
     public IEnumerator Stunned()
     {
-        playerController.canMove = false;
-        rb.angularDrag = 100;
-        rb.gravityScale = 10;
-        yield return new WaitForSeconds(stunTime);
-        rb.gravityScale = originalGravity;
-        rb.angularDrag = 0f;
+        playerController.canMove = false;           //Stops the player from moving
+        rb.sharedMaterial = frictionPhysics;        //Changes the physics to high friction for no sliding.
+        rb.gravityScale = 6;                        //Increases the gravity so there is no float.
+        yield return new WaitForSeconds(stunTime);  //Keeps these changes for a set amount of time.
+        rb.gravityScale = originalGravity;          //Returns each fact to normal.
+        rb.sharedMaterial = currentPhysics;
         playerController.canMove = true;
     }
 
