@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 12cdaff96cc7c364987e06c21efd50a6
+guid: 051574291d6338146acf0fbe5244551e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3875191938234908855
-    second: MagicBar_0
+      213: -5260937753142833901
+    second: MagicDisperse_0
   - first:
-      213: 2291791581562676933
-    second: MagicBar_1
+      213: 5090262381416953240
+    second: MagicDisperse_1
+  - first:
+      213: 3861837386341481495
+    second: MagicDisperse_2
+  - first:
+      213: -6748596609226579744
+    second: MagicDisperse_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -164,43 +170,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MagicBar_0
+      name: MagicDisperse_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 16
-        width: 58
-        height: 16
+        x: 0
+        y: 0
+        width: 48
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfadd568fed579240bf9c07ac42d4895
-      internalID: -3875191938234908855
+      spriteID: 94d1bdb09a688234aafb3c7d30668f9a
+      internalID: -5260937753142833901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MagicBar_1
+      name: MagicDisperse_1
       rect:
         serializedVersion: 2
-        x: 0
+        x: 48
         y: 0
-        width: 62
-        height: 16
+        width: 48
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bab6f563904e0ad44888e03492a38875
-      internalID: 2291791581562676933
+      spriteID: 8792a4de77d72114189b28f1ebc0386d
+      internalID: 5090262381416953240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagicDisperse_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf1cdcd3b60f187469a3faea1efcf1fe
+      internalID: 3861837386341481495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagicDisperse_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcad44cc1e5e7884f99b8943049199b5
+      internalID: -6748596609226579744
       vertices: []
       indices: 
       edges: []

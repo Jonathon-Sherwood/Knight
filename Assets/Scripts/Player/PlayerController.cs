@@ -135,19 +135,6 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("Grounded", false);
         }
 
-        //Placeholders to test animations
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            anim.Play("Player_Magic");
-        }
-
-        if (Input.GetKey(KeyCode.Mouse3))
-        {
-            anim.Play("Player_Death");
-            rb.constraints = RigidbodyConstraints2D.None;
-            rb.gravityScale = 1;
-        }
-
     }
 
 

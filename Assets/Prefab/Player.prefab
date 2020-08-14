@@ -158,6 +158,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9be7d11f8a4a449a91c60f3ffd58c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMagic: 0
+  magicSpeed: 20
+  magicDamage: 50
+  magicMax: 200
+  magicCost: 10
+  magicShotPrefab: {fileID: 4850519169950767178, guid: 6c99e92e2aa92e0469d04e7b89b72394,
+    type: 3}
 --- !u!114 &1949970057673261560
 MonoBehaviour:
   m_ObjectHideFlags: 0
