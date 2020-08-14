@@ -8,6 +8,7 @@ public class EnemyTakeDamage : MonoBehaviour
     public int maxHealth; //Adjustable variable in the inspector for max health.
     int currentHealth; //Holds the amount of health the enemy currently has.
     public Sprite hurtSprite; //Place a white sillouhette in inspector for flashing effect.
+    public GameObject deathPrefab; //Ensures the death animation plays where the object currently is.
     private Animator anim; //Calls this object's animator.
     private SpriteRenderer sprite; //Calls this object's sprite renderer.
 
@@ -41,7 +42,8 @@ public class EnemyTakeDamage : MonoBehaviour
     {
         anim.SetTrigger("isDead");
         GetComponent<CircleCollider2D>().enabled = false;
-        Destroy(this.gameObject, 1f);
+        Instantiate(deathPrefab, transform.position, transform.rotation);
+        Destroy(this.gameObject);
     }
 
     //Adds a flash of white sprite rather than an animation to match current position.

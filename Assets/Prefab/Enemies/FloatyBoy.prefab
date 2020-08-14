@@ -145,6 +145,8 @@ MonoBehaviour:
   maxHealth: 100
   hurtSprite: {fileID: -893384115060033818, guid: 8789f65e53de2ce43a6db634e80a8b0d,
     type: 3}
+  deathPrefab: {fileID: 7703417483476019497, guid: c494a95fd2f40524aa3a3ecf7d598190,
+    type: 3}
 --- !u!114 &1957314749251852897
 MonoBehaviour:
   m_ObjectHideFlags: 0
