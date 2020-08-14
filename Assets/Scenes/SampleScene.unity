@@ -375,36 +375,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c2b20da7a9c05a49b80922d3defbc08, type: 3}
---- !u!1 &297483023
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 297483024}
-  m_Layer: 0
-  m_Name: ShootPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &297483024
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297483023}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.567, y: -0.129, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1166754110}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &352530530
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,12 +757,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747283869}
   m_CullTransparentMesh: 0
---- !u!4 &1166754110 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2395996737500964818, guid: d3259d0e7f258364e92e4bf36113ef9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 2395996737234297307}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1218707061
 GameObject:
   m_ObjectHideFlags: 0
@@ -3235,11 +3199,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1949970057673261560, guid: d3259d0e7f258364e92e4bf36113ef9a,
-        type: 3}
-      propertyPath: invulTimer
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2395996737500964818, guid: d3259d0e7f258364e92e4bf36113ef9a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3302,19 +3261,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3957570896844628775, guid: d3259d0e7f258364e92e4bf36113ef9a,
         type: 3}
-      propertyPath: magicCost
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3957570896844628775, guid: d3259d0e7f258364e92e4bf36113ef9a,
-        type: 3}
-      propertyPath: magicShotPrefab
-      value: 
-      objectReference: {fileID: 4850519169950767178, guid: 6c99e92e2aa92e0469d04e7b89b72394,
-        type: 3}
-    - target: {fileID: 3957570896844628775, guid: d3259d0e7f258364e92e4bf36113ef9a,
-        type: 3}
-      propertyPath: magicMax
-      value: 200
+      propertyPath: castRate
+      value: 2.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3259d0e7f258364e92e4bf36113ef9a, type: 3}

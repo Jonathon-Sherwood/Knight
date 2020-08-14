@@ -9,6 +9,9 @@ public class PlayerMagic : MonoBehaviour
     public float magicSpeed;
     public int magicDamage;
 
+    public float castRate;
+    float nextCastTime;
+
     public float magicMax; //Sets the most magic the player can have.
     public float magicCost; //Set cost of magic when shot.
 
@@ -40,14 +43,23 @@ public class PlayerMagic : MonoBehaviour
 
     void Magic()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1) && currentMagic >= 10)
+
+        if (Time.time >= nextCastTime)
         {
-            currentMagic -= magicCost;
-            GetComponent<Animator>().Play("Player_Magic");
-            Instantiate(magicShotPrefab, shootPoint.position, shootPoint.rotation);
-        } else if (Input.GetKeyDown(KeyCode.Mouse1) && currentMagic <= 0)
-        {
-            GetComponent<Animator>().Play("Player_Magic");
+
+
+            if (Input.GetKeyDown(KeyCode.Mouse1) && currentMagic >= 10)
+            {
+                currentMagic -= magicCost;
+                GetComponent<Animator>().Play("Player_Magic");
+                Instantiate(magicShotPrefab, shootPoint.position, shootPoint.rotation);
+                nextCastTime = Time.time + 1f / castRate;
+            }
+            else if (Input.GetKeyDown(KeyCode.Mouse1) && currentMagic <= 0)
+            {
+                GetComponent<Animator>().Play("Player_Magic");
+                nextCastTime = Time.time + 1f / castRate;
+            }
         }
     }
 }

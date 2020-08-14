@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &297483023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297483024}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297483024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297483023}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.567, y: -0.129, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2395996737500964818}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2395996737500964831
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,6 +67,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6261040564621236647}
+  - {fileID: 297483024}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -161,6 +192,7 @@ MonoBehaviour:
   currentMagic: 0
   magicSpeed: 20
   magicDamage: 50
+  castRate: 0
   magicMax: 200
   magicCost: 10
   magicShotPrefab: {fileID: 4850519169950767178, guid: 6c99e92e2aa92e0469d04e7b89b72394,
@@ -182,7 +214,7 @@ MonoBehaviour:
   frictionPhysics: {fileID: 6200000, guid: ecd654a0892d2ee4ebef4ed1c3e19e66, type: 2}
   maxHealth: 5
   currentHealth: 0
-  invulTimer: 2
+  invulTimer: 1.5
   stunTime: 0.5
   deathKick: -30
 --- !u!50 &2395996737500964829
