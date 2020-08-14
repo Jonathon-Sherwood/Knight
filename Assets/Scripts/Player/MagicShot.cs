@@ -15,6 +15,9 @@ public class MagicShot : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerMagic = GameObject.Find("Player").GetComponent<PlayerMagic>();
         rb.velocity = transform.right * playerMagic.magicSpeed;
+
+        //Destroys this regardless of hitting something after certain time.
+        Destroy(this.gameObject, playerMagic.magicShotDestructionTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -7284,6 +7284,11 @@ PrefabInstance:
       propertyPath: castRate
       value: 2.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3957570896844628775, guid: d3259d0e7f258364e92e4bf36113ef9a,
+        type: 3}
+      propertyPath: magicShotDestructionTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3259d0e7f258364e92e4bf36113ef9a, type: 3}
 --- !u!1001 &5045597220430227852

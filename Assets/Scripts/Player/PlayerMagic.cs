@@ -14,6 +14,7 @@ public class PlayerMagic : MonoBehaviour
 
     public float magicMax; //Sets the most magic the player can have.
     public float magicCost; //Set cost of magic when shot.
+    public float magicShotDestructionTime; //Allows the designer to destroy the bullet early.
 
     public GameObject magicShotPrefab; //Assigns the prefab that will be shot.
     Transform shootPoint;
