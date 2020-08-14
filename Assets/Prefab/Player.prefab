@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2395996737500964828}
   - component: {fileID: 2395996737500964817}
   - component: {fileID: 1935185325811153068}
+  - component: {fileID: 1949970057673261560}
   - component: {fileID: 2395996737500964829}
   - component: {fileID: 2395996737500964830}
   - component: {fileID: 2395996737500964816}
@@ -142,6 +143,24 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 512
+  attackDamage: 0
+  attackRate: 0
+--- !u!114 &1949970057673261560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395996737500964831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3057ad75bf91f264dbcb8e2c482eac2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathSprite: {fileID: 0}
+  maxHealth: 0
+  invulTimer: 0
+  deathKick: 0
 --- !u!50 &2395996737500964829
 Rigidbody2D:
   serializedVersion: 4

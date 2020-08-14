@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6566897242651394738}
   - component: {fileID: 6566897242651394750}
   - component: {fileID: 6566897242651394737}
+  - component: {fileID: 1957314749251852897}
   - component: {fileID: 6566897242651394741}
   - component: {fileID: 6566897242651394736}
   - component: {fileID: 6566897242651394739}
@@ -142,6 +143,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  hurtSprite: {fileID: 0}
+--- !u!114 &1957314749251852897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6566897242651394743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afafdadaa2302a541b57326b95b02bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!95 &6566897242651394741
 Animator:
   serializedVersion: 3

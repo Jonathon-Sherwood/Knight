@@ -12,6 +12,9 @@ public class PlayerCombat : MonoBehaviour
 
     public int attackDamage;
 
+    public float attackRate;
+    float nextAttackTime;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -21,9 +24,13 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Time.time >= nextAttackTime)
         {
-            Attack();
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
     }
 
