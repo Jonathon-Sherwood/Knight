@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Invulnerable
   - Enemy
+  - Cinemachine
   layers:
   - Default
   - TransparentFX

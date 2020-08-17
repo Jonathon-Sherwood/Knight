@@ -83,6 +83,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Die(Vector2 direction)
     {
+        GameManager.instance.isDead = true;
         //Removes animator so that sprite can be manually swapped, then knocks player back the direction they were hit from
         anim.enabled = false;
         //AudioManager.instance.Play("PlayerDeath");
