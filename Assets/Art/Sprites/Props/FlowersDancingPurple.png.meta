@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 4bf060a6f456c474bb276357e3075aac
+guid: a95dbaef3ccecff4cb5eb2c40813b300
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 402433495843100196
-    second: IntroFloor-Sheet_0
+      213: -312488989557411315
+    second: FlowersDancingPurple_0
   - first:
-      213: 3481196644450849407
-    second: IntroFloor-Sheet_1
+      213: 9177253355223170699
+    second: FlowersDancingPurple_1
   - first:
-      213: 4614447788185103769
-    second: IntroFloor-Sheet_2
+      213: 6330774058337840598
+    second: FlowersDancingPurple_2
   - first:
-      213: -4971126816078473154
-    second: IntroFloor-Sheet_3
+      213: -665566478807868221
+    second: FlowersDancingPurple_3
   - first:
-      213: -4413669993905846281
-    second: IntroFloor-Sheet_4
+      213: -3220228675486448760
+    second: FlowersDancingPurple_4
   - first:
-      213: -14059168115151468
-    second: IntroFloor-Sheet_5
+      213: 2954356400643036327
+    second: FlowersDancingPurple_5
   - first:
-      213: 8594025869408517245
-    second: IntroFloor-Sheet_6
+      213: 7269445690893380984
+    second: FlowersDancingPurple_6
   - first:
-      213: 767299499923550815
-    second: IntroFloor-Sheet_7
+      213: 3367026386665078216
+    second: FlowersDancingPurple_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -69,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -88,7 +88,7 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -100,7 +100,7 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -112,7 +112,7 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -124,7 +124,7 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -136,7 +136,7 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -148,7 +148,7 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -160,7 +160,7 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -172,7 +172,7 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -182,13 +182,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IntroFloor-Sheet_0
+      name: FlowersDancingPurple_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 16
         y: 0
-        width: 991
-        height: 120
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c80cc64a7a696f549a73c94a40c08f0b
-      internalID: 402433495843100196
+      spriteID: 88f19aa80b5e4f14180fe907ce9e6bcb
+      internalID: -312488989557411315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IntroFloor-Sheet_1
+      name: FlowersDancingPurple_1
       rect:
         serializedVersion: 2
-        x: 991
+        x: 64
         y: 0
-        width: 991
-        height: 120
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,20 +217,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65c486d47fe5f254f8fddd7c18cc7b25
-      internalID: 3481196644450849407
+      spriteID: d98a93fb6e9207d4ea92ffdcd7896e9d
+      internalID: 9177253355223170699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IntroFloor-Sheet_2
+      name: FlowersDancingPurple_2
       rect:
         serializedVersion: 2
-        x: 1982
+        x: 112
         y: 0
-        width: 991
-        height: 120
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,20 +238,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8be57464e8ca41c4aab7226236c092ac
-      internalID: 4614447788185103769
+      spriteID: 6607f370ce68dcb4794f20f1c73376f7
+      internalID: 6330774058337840598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IntroFloor-Sheet_3
+      name: FlowersDancingPurple_3
       rect:
         serializedVersion: 2
-        x: 2973
+        x: 160
         y: 0
-        width: 991
-        height: 120
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,20 +259,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49175ce285a27dd4bb6e7b0d3a32e3c0
-      internalID: -4971126816078473154
+      spriteID: e3d4e0cf54b46e24690ef7da055365b6
+      internalID: -665566478807868221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IntroFloor-Sheet_4
+      name: FlowersDancingPurple_4
       rect:
         serializedVersion: 2
-        x: 3964
+        x: 208
         y: 0
-        width: 991
-        height: 120
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,20 +280,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b53f9e825515d5c41a3aabad8e3ce3cb
-      internalID: -4413669993905846281
+      spriteID: 9012fdd72dd574c4fb1a58911c4e612c
+      internalID: -3220228675486448760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IntroFloor-Sheet_5
+      name: FlowersDancingPurple_5
       rect:
         serializedVersion: 2
-        x: 4955
+        x: 256
         y: 0
-        width: 991
-        height: 120
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,20 +301,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b773e89ad2b66043bae7a61e3b1f5cc
-      internalID: -14059168115151468
+      spriteID: c298ab674fbc62e48b850179fec1f75a
+      internalID: 2954356400643036327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IntroFloor-Sheet_6
+      name: FlowersDancingPurple_6
       rect:
         serializedVersion: 2
-        x: 5946
+        x: 304
         y: 0
-        width: 991
-        height: 120
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,20 +322,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e702063f165934e41b4457d839df467e
-      internalID: 8594025869408517245
+      spriteID: b40e97e179e7ca246ac94c570e71890d
+      internalID: 7269445690893380984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IntroFloor-Sheet_7
+      name: FlowersDancingPurple_7
       rect:
         serializedVersion: 2
-        x: 6937
+        x: 352
         y: 0
-        width: 991
-        height: 120
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -343,8 +343,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94970cc076dbe91428ce0c2d798a0644
-      internalID: 767299499923550815
+      spriteID: c06767eceddd1af4db91a308c01929a5
+      internalID: 3367026386665078216
       vertices: []
       indices: 
       edges: []

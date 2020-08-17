@@ -9,15 +9,33 @@ public class Menu : MonoBehaviour
     public GameObject quitMenu;
     public GameObject optionsMenu;
     public GameObject creditsMenu;
+    public GameObject playerDummy;
 
-    // Update is called once per frame
-    void Update()
+    public float startDelay;
+    public float playerDummyRunSpeed;
+
+    private bool gameStarted = false;
+
+    private void Update()
     {
-        
+        if (gameStarted)
+        {
+            playerDummy.transform.Translate(Vector3.right * (playerDummyRunSpeed * Time.deltaTime));
+        }
     }
 
     public void Startgame()
     {
+        optionsMenu.SetActive(false);
+        quitMenu.SetActive(false);
+        creditsMenu.SetActive(false);
+        gameStarted = true;
+        StartCoroutine(StartDelay());
+    }
+
+    IEnumerator StartDelay()
+    {
+        yield return new WaitForSeconds(startDelay);
         SceneManager.LoadScene(2);
     }
 
