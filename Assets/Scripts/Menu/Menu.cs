@@ -22,6 +22,11 @@ public class Menu : MonoBehaviour
         {
             playerDummy.transform.Translate(Vector3.right * (playerDummyRunSpeed * Time.deltaTime));
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameStarted)
+        {
+            Cancel();
+        }
     }
 
     public void Startgame()
@@ -37,6 +42,13 @@ public class Menu : MonoBehaviour
     {
         yield return new WaitForSeconds(startDelay);
         SceneManager.LoadScene(2);
+    }
+
+    public void CreditsMenu()
+    {
+        optionsMenu.SetActive(false);
+        quitMenu.SetActive(false);
+        creditsMenu.SetActive(true);
     }
 
     public void QuitMenu()
