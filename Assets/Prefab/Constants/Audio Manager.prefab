@@ -45,10 +45,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - clip: {fileID: 8300000, guid: cbfdff46fca17974684e8467109895cb, type: 3}
-    name: Music
+    name: Level1Music
     volume: 1
     pitch: 1
     time: 0
     loop: 1
+    mute: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1b369d2a3dc8ed14abfdbf95c9ca98db, type: 3}
+    name: StartClick
+    volume: 1
+    pitch: 1
+    time: 0
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 71676b340c6f03b489aebbddbb5d2a30, type: 3}
+    name: MenuMusic
+    volume: 1
+    pitch: 1
+    time: 0
+    loop: 1
+    mute: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 44bd93f0bdcdd6045a5298a4ee3c9601, type: 3}
+    name: SplashScreen
+    volume: 1
+    pitch: 1
+    time: 0
+    loop: 0
     mute: 0
     source: {fileID: 0}

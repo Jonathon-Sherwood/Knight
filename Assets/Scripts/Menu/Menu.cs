@@ -31,6 +31,8 @@ public class Menu : MonoBehaviour
 
     public void Startgame()
     {
+        AudioManager.instance.Play("StartClick");
+        AudioManager.instance.Stop("MenuMusic");
         optionsMenu.SetActive(false);
         quitMenu.SetActive(false);
         creditsMenu.SetActive(false);

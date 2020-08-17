@@ -1,18 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameManager instance; //Allows this to be called by any script.
+
+    //Sets this as a singleton.
+    public void Awake()
     {
-        AudioManager.instance.Play("Music");
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        AudioManager.instance.Play("SplashScreen");
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if (level == 1)
+        {
+            AudioManager.instance.Play("MenuMusic");
+        }
+
+        if (level == 2)
+        {
+            AudioManager.instance.Play("Level1Music");
+        }
     }
 }
