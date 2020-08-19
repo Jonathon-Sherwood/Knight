@@ -15,6 +15,8 @@ public class EnemyBat : MonoBehaviour
     private GameObject player; //Used to find the player
     private Animator anim; //Used to call the animator
 
+    private bool chasing;
+
     Vector3 targetPosition;
     Vector3 directionToLook;
 
@@ -25,10 +27,14 @@ public class EnemyBat : MonoBehaviour
         reflectedTime = reflectTime;
     }
 
+    private void Update()
+    {
+        if(chasing)
+        Movement();
+    }
 
     void Movement()
     {
-        print(reflectedTime);
         if (!player.GetComponent<PlayerHealth>().invulnerable)
         {
             transform.position += directionToLook.normalized * movementSpeed * Time.deltaTime;      //Moves the ship towards the player.
@@ -55,7 +61,12 @@ public class EnemyBat : MonoBehaviour
         if (chaseRange.IsTouchingLayers(LayerMask.GetMask("Player")))
         {
             anim.SetTrigger("Chasing");
-            Movement();
+            chasing = true;
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        chasing = false;
     }
 }

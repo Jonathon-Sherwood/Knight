@@ -213,11 +213,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSprite: {fileID: 3753270015839330337, guid: c8fa2f432fa73fd43802a8ef0723970e,
     type: 3}
+  hurtSprite: {fileID: 21300000, guid: f5c45d6a75da71445a2913401e0de839, type: 3}
   frictionPhysics: {fileID: 6200000, guid: ecd654a0892d2ee4ebef4ed1c3e19e66, type: 2}
   maxHealth: 5
   currentHealth: 0
+  invulnerable: 0
   invulTimer: 1.5
   stunTime: 0.5
+  flashTime: 0.1
   deathKick: -30
 --- !u!50 &2395996737500964829
 Rigidbody2D:

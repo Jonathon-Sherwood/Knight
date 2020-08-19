@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     PhysicsMaterial2D currentPhysics; //Holds onto the physics property already used.
 
     public Sprite deathSprite; //Replaces animator and sprite with a dead version.
+    public Sprite hurtSprite; //Replaces animator and sprite with hurt version.
     public PhysicsMaterial2D frictionPhysics; //Swaps to a new physics material on stun.
 
     public float maxHealth; //Adjustable health for player.
@@ -19,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
 
     public float invulTimer; //Causes the player to be invulnerable after taking damage.
     public float stunTime; //Adjustable amount of time the player is stunned on hit.
+    public float flashTime; //Adjustable amount of time the player flashes white on damage.
 
     public float deathKick; //Knocks the player backwards by a set amount
 
@@ -66,8 +68,12 @@ public class PlayerHealth : MonoBehaviour
     {
         invulnerable = true;
         transform.gameObject.tag = "Invulnerable";
+        anim.enabled = false;
+        sprite.sprite = hurtSprite;
+        yield return new WaitForSeconds(flashTime);
+        anim.enabled = true;
         sprite.color = new Color(1f, 1f, 1f, .5f);
-        yield return new WaitForSeconds(invulTimer);
+        yield return new WaitForSeconds(invulTimer - flashTime);
         sprite.color = new Color(1f, 1f, 1f, 1f);
         transform.gameObject.tag = "Player";
         invulnerable = false;
