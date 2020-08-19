@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
 
     public float maxHealth; //Adjustable health for player.
     [HideInInspector] public float currentHealth; //Holds the current amount of health on player.
+    [HideInInspector] public bool invulnerable; //Used for other scripts to detect if player is invulnerable.
 
     public float invulTimer; //Causes the player to be invulnerable after taking damage.
     public float stunTime; //Adjustable amount of time the player is stunned on hit.
@@ -63,11 +64,13 @@ public class PlayerHealth : MonoBehaviour
     //used to keep player invulnerable for the brief period after taking damage
     public IEnumerator Invulnerability()
     {
+        invulnerable = true;
         transform.gameObject.tag = "Invulnerable";
         sprite.color = new Color(1f, 1f, 1f, .5f);
         yield return new WaitForSeconds(invulTimer);
         sprite.color = new Color(1f, 1f, 1f, 1f);
         transform.gameObject.tag = "Player";
+        invulnerable = false;
     }
 
     public IEnumerator Stunned()
@@ -83,6 +86,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Die(Vector2 direction)
     {
+        invulnerable = true;
         GameManager.instance.isDead = true;
         //Removes animator so that sprite can be manually swapped, then knocks player back the direction they were hit from
         anim.enabled = false;

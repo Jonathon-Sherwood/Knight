@@ -31,19 +31,15 @@ public class EnemyTakeDamage : MonoBehaviour
             Die();
         }
 
-        if (!anim.GetBool("isDead"))
-        {
-            StartCoroutine(Hurt());
-        }
+        StartCoroutine(Hurt());
     }
 
     //Plays a death animation, allows the player to move past it, then is destroyed.
     void Die()
     {
-        anim.SetTrigger("isDead");
         GetComponent<CircleCollider2D>().enabled = false;
         Instantiate(deathPrefab, transform.position, transform.rotation);
-        Destroy(this.gameObject);
+        Destroy(transform.root.gameObject); //Destroys the entire gameobject related to this enemy rather than just the script holder.
     }
 
     //Adds a flash of white sprite rather than an animation to match current position.

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 297483024}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 2395996737500964829}
   - component: {fileID: 2395996737500964830}
   - component: {fileID: 2395996737500964816}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -193,10 +193,10 @@ MonoBehaviour:
   currentMagic: 0
   magicSpeed: 20
   magicDamage: 50
-  castRate: 0
+  castRate: 2.75
   magicMax: 200
   magicCost: 10
-  magicShotDestructionTime: 0
+  magicShotDestructionTime: 2
   magicShotPrefab: {fileID: 4850519169950767178, guid: 6c99e92e2aa92e0469d04e7b89b72394,
     type: 3}
 --- !u!114 &1949970057673261560
@@ -294,7 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6261040564621236647}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,6 +326,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player After Image Pool
+      objectReference: {fileID: 0}
+    - target: {fileID: 908026907881122112, guid: 982cd3144ed409b4fa6e228c7c261247,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 908026907881122115, guid: 982cd3144ed409b4fa6e228c7c261247,
         type: 3}
