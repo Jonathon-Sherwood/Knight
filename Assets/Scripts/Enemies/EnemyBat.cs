@@ -16,6 +16,7 @@ public class EnemyBat : MonoBehaviour
     private Animator anim; //Used to call the animator
 
     private bool chasing;
+    private bool touch; //Only reflects if touching player.
 
     Vector3 targetPosition;
     Vector3 directionToLook;
@@ -29,39 +30,52 @@ public class EnemyBat : MonoBehaviour
 
     private void Update()
     {
-        if(chasing)
-        Movement();
+        if(chasing) Movement();
+
+        print(touch);
     }
 
     void Movement()
     {
-        if (!player.GetComponent<PlayerHealth>().invulnerable)
+        if (!player.GetComponent<PlayerHealth>().invulnerable && !touch)
         {
             transform.position += directionToLook.normalized * movementSpeed * Time.deltaTime;      //Moves the ship towards the player.
             targetPosition = player.transform.position;
             directionToLook = targetPosition - transform.position;
             reflectedTime = reflectTime;
-        } else
+        } else if (player.GetComponent<PlayerHealth>().invulnerable && touch)
         {
             reflectedTime--;
             if (reflectedTime >= 0)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y + (movementSpeed * attackReflect), transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y + ( attackReflect), transform.position.z);
+            } else
+            {
+                touch = false;
             }
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (detectionRange.IsTouchingLayers(LayerMask.GetMask("Player")))
+        if (detectionRange.IsTouchingLayers(LayerMask.GetMask("Player")) || detectionRange.IsTouchingLayers(LayerMask.GetMask("Invulnerable")))
         {
             anim.SetTrigger("Detected");
         }
 
-        if (chaseRange.IsTouchingLayers(LayerMask.GetMask("Player")))
+        if (chaseRange.IsTouchingLayers(LayerMask.GetMask("Player")) || detectionRange.IsTouchingLayers(LayerMask.GetMask("Invulnerable")))
         {
             anim.SetTrigger("Chasing");
+            chaseRange.radius = 9;  //Increases chasing size once they have detected the player
             chasing = true;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            touch = true;
         }
     }
 

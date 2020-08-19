@@ -68,6 +68,7 @@ public class PlayerHealth : MonoBehaviour
     {
         invulnerable = true;
         transform.gameObject.tag = "Invulnerable";
+        gameObject.layer = 11;
         anim.enabled = false;
         sprite.sprite = hurtSprite;
         yield return new WaitForSeconds(flashTime);
@@ -76,6 +77,7 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(invulTimer - flashTime);
         sprite.color = new Color(1f, 1f, 1f, 1f);
         transform.gameObject.tag = "Player";
+        gameObject.layer = 10;
         invulnerable = false;
     }
 
@@ -101,7 +103,7 @@ public class PlayerHealth : MonoBehaviour
         rb.drag = 5f;
         rb.gravityScale = 10;
         transform.Rotate(0f, 0f, 90f);
-        //boxCollider.size = new Vector2(.75f, boxCollider.size.y);
+        gameObject.layer = 11; 
         GetComponent<SpriteRenderer>().sprite = deathSprite;
         playerController.canMove = false;
     }

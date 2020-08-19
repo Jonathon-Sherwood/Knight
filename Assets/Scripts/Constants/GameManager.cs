@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         {
             LoadLevel(4);
         }
-        else if ((currentSceneIndex != (4) && currentSceneIndex != (0) && currentSceneIndex != (3)) && playerLives >= 0)
+        else if ((currentSceneIndex != (4) && currentSceneIndex != (0) && playerLives >= 0))
         {
             playerLives--;
             LoadLevel(currentSceneIndex);
