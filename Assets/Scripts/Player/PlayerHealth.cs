@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        currentHealth = maxHealth;
+        currentHealth = GameManager.instance.retainedHealth;
         originalGravity = rb.gravityScale;
         currentPhysics = rb.sharedMaterial;
     }

@@ -9,6 +9,8 @@ public class LevelExit : MonoBehaviour
         //Kills the player on contact, used at the bottom of the screen for falling death. 
         if (collision.CompareTag("Player"))
         {
+            GameManager.instance.retainedHealth = GameObject.Find("Player").GetComponent<PlayerHealth>().currentHealth;
+            GameManager.instance.retainedMagic = GameObject.Find("Player").GetComponent<PlayerMagic>().currentMagic;
             GameManager.instance.LoadNextScene();
         }
     }

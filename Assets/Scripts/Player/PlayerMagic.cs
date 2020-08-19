@@ -22,6 +22,7 @@ public class PlayerMagic : MonoBehaviour
     private void Start()
     {
         shootPoint = GameObject.Find("ShootPoint").transform;
+        currentMagic = GameManager.instance.retainedMagic;
     }
 
     // Update is called once per frame

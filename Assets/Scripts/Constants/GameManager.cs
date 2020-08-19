@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public int MaxPlayerLives; //Allows the designer to choose how many times the player can die.
     public float deathDelay; //Allows the designer to change how long the scene persists after death.
 
+    [HideInInspector] public float retainedHealth;
+    [HideInInspector] public float retainedMagic;
+
 
     private void OnEnable()
     {
@@ -36,6 +39,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         AudioManager.instance.Play("SplashScreen"); //Starts playing music on start.
+        retainedHealth = 5;
     }
 
     private void Update()
