@@ -37,7 +37,7 @@ public class EnemyBat : MonoBehaviour
     {
         if (!player.GetComponent<PlayerHealth>().invulnerable && !touch)
         {
-            transform.position += directionToLook.normalized * movementSpeed * Time.deltaTime;      //Moves the ship towards the player.
+            transform.position += directionToLook.normalized * movementSpeed * Time.deltaTime;      //Moves the bat towards the player.
             targetPosition = player.transform.position;
             directionToLook = targetPosition - transform.position;
             reflectedTime = reflectTime;
