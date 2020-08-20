@@ -39,6 +39,17 @@ public class PlayerCombat : MonoBehaviour
         //Plays the attack animation
         anim.Play("Player_Attack");
 
+
+        int randomSound = Random.Range(1, 3); //Used to swap between sword swing sounds
+
+        if (randomSound == 1)
+        {
+            AudioManager.instance.Play("Swing1");
+        } else if (randomSound == 2)
+        {
+            AudioManager.instance.Play("Swing2");
+        }
+
         //Detects all enemies within range of attack
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 

@@ -92,3 +92,19 @@ MonoBehaviour:
     loop: 0
     mute: 0
     source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 004a3d43741126545881472ce9a02e09, type: 3}
+    name: Swing1
+    volume: 1
+    pitch: 1
+    time: 0
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: bd8610b5553c68e489fcf0f18394db6d, type: 3}
+    name: Swing2
+    volume: 1
+    pitch: 1
+    time: 0
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
