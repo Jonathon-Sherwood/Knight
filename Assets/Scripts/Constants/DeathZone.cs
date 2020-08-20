@@ -11,7 +11,8 @@ public class DeathZone : MonoBehaviour
         if (collision.CompareTag("Player") || collision.CompareTag("Invulnerable"))
         {
             GameManager.instance.isDead = true;
-
+            GameManager.instance.retainedHealth = GameObject.Find("Player").GetComponent<PlayerHealth>().maxHealth;
+            GameManager.instance.retainedMagic = 0;
             //turns off camera to imply player fell off screen.
             Destroy(GameObject.FindGameObjectWithTag("Cinemachine"));
         }

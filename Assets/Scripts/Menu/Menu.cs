@@ -46,6 +46,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void CreditsMenu()
     {
         optionsMenu.SetActive(false);

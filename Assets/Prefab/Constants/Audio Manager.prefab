@@ -76,3 +76,19 @@ MonoBehaviour:
     loop: 0
     mute: 0
     source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: c41eca432463e6746b7265371f30836a, type: 3}
+    name: LoseScreen
+    volume: 1
+    pitch: 1
+    time: 0
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: cec8e090419d474459171e4c743d54e9, type: 3}
+    name: WinScreen
+    volume: 1
+    pitch: 1
+    time: 0
+    loop: 0
+    mute: 0
+    source: {fileID: 0}

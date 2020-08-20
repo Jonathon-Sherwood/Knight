@@ -106,5 +106,7 @@ public class PlayerHealth : MonoBehaviour
         gameObject.layer = 11; 
         GetComponent<SpriteRenderer>().sprite = deathSprite;
         playerController.canMove = false;
+        GameManager.instance.retainedHealth = maxHealth;
+        GameManager.instance.retainedMagic = 0;
     }
 }

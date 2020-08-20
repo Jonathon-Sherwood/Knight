@@ -33,13 +33,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        playerLives = MaxPlayerLives;
     }
 
     private void Start()
     {
         AudioManager.instance.Play("SplashScreen"); //Starts playing music on start.
-        retainedHealth = 5;
+        playerLives = MaxPlayerLives;
     }
 
     private void Update()
@@ -54,16 +53,16 @@ public class GameManager : MonoBehaviour
     IEnumerator DeathDelay()
     {
         AudioManager.instance.Stop("Level1Music");
+        playerLives--;
         isDead = false;
         yield return new WaitForSeconds(deathDelay);
-        //Switches to the lose screen on player death 4 times, otherwise respawns player.
-        if ((currentSceneIndex != (4) && currentSceneIndex != (0) && currentSceneIndex != (3)) && playerLives < 0)
+        //Switches to the lose screen on player max death times, otherwise respawns player.
+        if ((currentSceneIndex != (5) && currentSceneIndex != (0) && playerLives <= 0))
         {
-            LoadLevel(4);
+            LoadLevel(6);
         }
-        else if ((currentSceneIndex != (4) && currentSceneIndex != (0) && playerLives >= 0))
+        else if ((currentSceneIndex != (5) && currentSceneIndex != (0) && playerLives > 0))
         {
-            playerLives--;
             LoadLevel(currentSceneIndex);
         }
     }
@@ -90,10 +89,25 @@ public class GameManager : MonoBehaviour
         if (currentSceneIndex == 1)
         {
             AudioManager.instance.Play("MenuMusic");
+            AudioManager.instance.Stop("LoseScreen");
+            AudioManager.instance.Stop("WinScreen");
+            playerLives = MaxPlayerLives;
         }
         if (currentSceneIndex == 2)
         {
             AudioManager.instance.Play("Level1Music");
+            retainedHealth = GameObject.Find("Player").GetComponent<PlayerHealth>().maxHealth;
+        }
+        if (currentSceneIndex == 5)
+        {
+            AudioManager.instance.Stop("Level1Music");
+            AudioManager.instance.Play("WinScreen");
+        }
+        if (currentSceneIndex == 6)
+        {
+            AudioManager.instance.Stop("Level1Music");
+            print("Test");
+            AudioManager.instance.Play("LoseScreen");
         }
     }
 

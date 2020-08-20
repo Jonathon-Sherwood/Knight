@@ -31,8 +31,6 @@ public class EnemyBat : MonoBehaviour
     private void Update()
     {
         if(chasing) Movement();
-
-        print(touch);
     }
 
     void Movement()

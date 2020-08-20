@@ -9,12 +9,13 @@ public class Dash : MonoBehaviour
     private float dashTimeLeft; //Holds the current time of dash cooldown.
     private float lastImageXpos; //Tracks the x coordinate of last placed after image.
     private float lastDash = -100; //Used to check for cooldown based on last time dash used.
+    private bool canDash; //Reset on touching the ground.
     private PlayerController playerController; //Holds the player controller script.
 
     public float dashTime; //Adjustable amount of time for player dashing in inspector.
     public float dashSpeed; //Adjustale amount of speed for player dashing in inspector.
     public float distanceBetweenImages; //Adjustable distance between afterimages in inspector.
-    public float dashCooldown; //Adjustale amount of time between player dashes in inspector.
+   
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +29,14 @@ public class Dash : MonoBehaviour
     {
         CheckDash();
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (playerController.IsGrounded())
         {
-            if(Time.time >= (lastDash + dashCooldown))
+            canDash = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            canDash = false;
             AttemptToDash();
         }
     }
