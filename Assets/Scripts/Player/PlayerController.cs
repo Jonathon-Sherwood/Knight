@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]public bool flipX; //Holds whether or not the player is already flipped on the x axis.
 
     [HideInInspector]public bool canMove = true; //Holds a value of the player being able to move.
+    [HideInInspector] public bool canJump = true; //Holds a value of the player being able to jump.
 
     public LayerMask groundLayerMask; //Allows the IsGrounded raycast to only hit the floor.
 
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Jump();
+        if (canJump) Jump();
         AnimationControl();
         if (canMove) Movement();
     }

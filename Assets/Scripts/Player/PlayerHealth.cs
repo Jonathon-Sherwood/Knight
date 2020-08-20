@@ -106,6 +106,8 @@ public class PlayerHealth : MonoBehaviour
         gameObject.layer = 11; 
         GetComponent<SpriteRenderer>().sprite = deathSprite;
         playerController.canMove = false;
+        playerController.canJump = false;
+        Destroy(GameObject.FindGameObjectWithTag("Cinemachine"));
         GameManager.instance.retainedHealth = maxHealth;
         GameManager.instance.retainedMagic = 0;
     }
