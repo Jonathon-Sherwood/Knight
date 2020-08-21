@@ -20,6 +20,7 @@ public class HealthPickup : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Invulnerable"))
         {
+            AudioManager.instance.Play("Health");
             playerHealth.currentHealth++;
             Destroy(this.gameObject);
         }

@@ -108,3 +108,51 @@ MonoBehaviour:
     loop: 0
     mute: 0
     source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: bd15304a85770134cb040b467f12cfb9, type: 3}
+    name: Death
+    volume: 1
+    pitch: 1
+    time: 0
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 4b27d09456daeda43afc87d1c51e0ad4, type: 3}
+    name: EnemyHit
+    volume: 1
+    pitch: 1
+    time: 0
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: f6e0e3f254f8e054092c37df445bac7d, type: 3}
+    name: EnemyDie
+    volume: 1
+    pitch: 1
+    time: 0
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 0edb8362878fd2744861ddaf21892f3f, type: 3}
+    name: PlayerHurt
+    volume: 1
+    pitch: 1
+    time: 0
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 69b7482c694818e4c964afe5df3ba2d1, type: 3}
+    name: MagicCast
+    volume: 0.411
+    pitch: 1
+    time: 0
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 50652aaa7ec7dbe4fa1ecc000f02b7e6, type: 3}
+    name: Health
+    volume: 0.304
+    pitch: 2.071
+    time: 0
+    loop: 0
+    mute: 0
+    source: {fileID: 0}

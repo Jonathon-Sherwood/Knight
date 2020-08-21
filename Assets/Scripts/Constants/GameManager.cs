@@ -92,11 +92,13 @@ public class GameManager : MonoBehaviour
             AudioManager.instance.Stop("LoseScreen");
             AudioManager.instance.Stop("WinScreen");
             playerLives = MaxPlayerLives;
+            retainedMagic = 0;
         }
         if (currentSceneIndex == 2)
         {
             AudioManager.instance.Play("Level1Music");
             retainedHealth = GameObject.Find("Player").GetComponent<PlayerHealth>().maxHealth;
+
         }
         if (currentSceneIndex == 5)
         {

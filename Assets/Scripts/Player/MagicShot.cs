@@ -12,6 +12,7 @@ public class MagicShot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.instance.Play("MagicCast");
         rb = GetComponent<Rigidbody2D>();
         playerMagic = GameObject.Find("Player").GetComponent<PlayerMagic>();
         rb.velocity = transform.right * playerMagic.magicSpeed;

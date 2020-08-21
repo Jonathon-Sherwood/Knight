@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth; //Adjustable health for player.
     [HideInInspector] public float currentHealth; //Holds the current amount of health on player.
     [HideInInspector] public bool invulnerable; //Used for other scripts to detect if player is invulnerable.
+    [HideInInspector] public bool died; //Used by other scripts to see if the player is dead.
 
     public float invulTimer; //Causes the player to be invulnerable after taking damage.
     public float stunTime; //Adjustable amount of time the player is stunned on hit.
@@ -49,6 +50,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (currentHealth > 1)
         {
+            AudioManager.instance.Play("PlayerHurt");
             rb.velocity = new Vector2(Mathf.Sign(direction.normalized.x) * deathKick * 0.2f, 5f);
             StartCoroutine(Stunned());
             StartCoroutine(Invulnerability());
@@ -96,6 +98,7 @@ public class PlayerHealth : MonoBehaviour
     {
         invulnerable = true;
         GameManager.instance.isDead = true;
+        died = true;
         //Removes animator so that sprite can be manually swapped, then knocks player back the direction they were hit from
         anim.enabled = false;
         //AudioManager.instance.Play("PlayerDeath");
@@ -107,6 +110,7 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = deathSprite;
         playerController.canMove = false;
         playerController.canJump = false;
+        AudioManager.instance.Play("Death");
         Destroy(GameObject.FindGameObjectWithTag("Cinemachine"));
         GameManager.instance.retainedHealth = maxHealth;
         GameManager.instance.retainedMagic = 0;

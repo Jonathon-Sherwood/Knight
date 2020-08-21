@@ -26,6 +26,7 @@ public class EnemyTakeDamage : MonoBehaviour
     {
         currentHealth -= damage;
 
+
         if (currentHealth <= 0)
         {
             Die();
@@ -38,6 +39,7 @@ public class EnemyTakeDamage : MonoBehaviour
     void Die()
     {
         GetComponent<CircleCollider2D>().enabled = false;
+        AudioManager.instance.Play("EnemyDie");
         Instantiate(deathPrefab, transform.position, transform.rotation);
         Destroy(transform.root.gameObject); //Destroys the entire gameobject related to this enemy rather than just the script holder.
     }
@@ -46,6 +48,7 @@ public class EnemyTakeDamage : MonoBehaviour
     IEnumerator Hurt()
     {
         anim.enabled = false;
+        AudioManager.instance.Play("EnemyHit");
         sprite.sprite = hurtSprite;
         yield return new WaitForSeconds(.1f);
         anim.enabled = true;
