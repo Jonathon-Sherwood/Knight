@@ -6,8 +6,7 @@ public class MagicShot : MonoBehaviour
 {
     PlayerMagic playerMagic;
     Rigidbody2D rb;
-    public LayerMask obstacles;
-    public GameObject magicDispersePrefab;
+    public GameObject magicDispersePrefab; //creates the destruction effect on impact
 
     // Start is called before the first frame update
     void Start()

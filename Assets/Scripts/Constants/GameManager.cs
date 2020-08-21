@@ -91,13 +91,13 @@ public class GameManager : MonoBehaviour
             AudioManager.instance.Play("MenuMusic");
             AudioManager.instance.Stop("LoseScreen");
             AudioManager.instance.Stop("WinScreen");
-            playerLives = MaxPlayerLives;
-            retainedMagic = 0;
+            playerLives = MaxPlayerLives; //Resets player lives in menu
+            retainedMagic = 0; //Reverts player magic in menu to 0
         }
         if (currentSceneIndex == 2)
         {
             AudioManager.instance.Play("Level1Music");
-            retainedHealth = GameObject.Find("Player").GetComponent<PlayerHealth>().maxHealth;
+            retainedHealth = GameObject.Find("Player").GetComponent<PlayerHealth>().maxHealth; //Resets player health at start of game.
 
         }
         if (currentSceneIndex == 5)
@@ -108,7 +108,6 @@ public class GameManager : MonoBehaviour
         if (currentSceneIndex == 6)
         {
             AudioManager.instance.Stop("Level1Music");
-            print("Test");
             AudioManager.instance.Play("LoseScreen");
         }
     }

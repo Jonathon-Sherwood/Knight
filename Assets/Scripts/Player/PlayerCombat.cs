@@ -5,15 +5,15 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     private Animator anim;
-    private Transform attackPoint;
+    private Transform attackPoint; //Attach a gameobject in front of the player
 
-    public float attackRange;
-    public LayerMask enemyLayers;
+    public float attackRange; //Sets a circle radius of damage from attack point
+    public LayerMask enemyLayers; //Anything that has a takedamage script
 
-    public int attackDamage;
+    public int attackDamage; //Amount of damage dealt to target
 
-    public float attackRate;
-    float nextAttackTime;
+    public float attackRate; //Delays attacks between a fixed amount of time to prevent spamming
+    float nextAttackTime; //Holds the current amount of attackrate delay
 
     private void Start()
     {

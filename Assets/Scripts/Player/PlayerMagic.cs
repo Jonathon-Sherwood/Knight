@@ -6,11 +6,11 @@ public class PlayerMagic : MonoBehaviour
 {
     [HideInInspector] public float currentMagic; //Holds the value of magic currently accrued.
 
-    public float magicSpeed;
-    public int magicDamage;
+    public float magicSpeed; //How fast the magic bullet flies
+    public int magicDamage; //How much damage the magic bullet deals
 
-    public float castRate;
-    float nextCastTime;
+    public float castRate; //How frequent the magic can be cast
+    float nextCastTime; //Holds the value of current casting delay
 
     public float magicMax; //Sets the most magic the player can have.
     public float magicCost; //Set cost of magic when shot.
@@ -43,13 +43,13 @@ public class PlayerMagic : MonoBehaviour
         }
     }
 
+
+    //Instantiates a magic shot that flies towards facing direction and deals damage. The bullet has its own script
     void Magic()
     {
 
         if (Time.time >= nextCastTime)
         {
-
-
             if (Input.GetKeyDown(KeyCode.Mouse1) && currentMagic >= 10)
             {
                 currentMagic -= magicCost;

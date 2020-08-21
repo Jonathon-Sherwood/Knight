@@ -18,9 +18,10 @@ public class HealthPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Heals the player and destroys this object
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Invulnerable"))
         {
-            AudioManager.instance.Play("Health");
+            AudioManager.instance.Play("Pickup");
             playerHealth.currentHealth++;
             Destroy(this.gameObject);
         }

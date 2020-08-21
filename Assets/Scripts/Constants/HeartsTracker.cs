@@ -7,9 +7,10 @@ public class HeartsTracker : MonoBehaviour
 {
     PlayerHealth playerHealth; //Calls the player health script for tracking hearts.
 
-    public Sprite heartFull;
-    public Sprite heartEmpty;
+    public Sprite heartFull; //The red heart that indicates the player has that health
+    public Sprite heartEmpty; //The grey heart that indicates the player lost that health
 
+    //Each is attached to a different heart in the UI
     public Image heart1;
     public Image heart2;
     public Image heart3;
@@ -26,8 +27,10 @@ public class HeartsTracker : MonoBehaviour
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
     }
 
+
     private void Update()
     {
+        //Swaps sprites based on missing health. For each lost, another heart is swapped to an empty sprite.
         if(playerHealth.currentHealth == 5)
         {
             heart1.sprite = heartFull;

@@ -113,6 +113,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Sets all animations to their proper state based on conditions
     private void AnimationControl()
     {
         if((rb.velocity.x > .01 || rb.velocity.x < -.01) && canMove)

@@ -6,7 +6,7 @@ public class LevelExit : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Kills the player on contact, used at the bottom of the screen for falling death. 
+        //Moves the player to the next scene and sends the gamemanager information about the player's current stats 
         if (collision.CompareTag("Player") || collision.CompareTag("Invulnerable"))
         {
             GameManager.instance.retainedHealth = GameObject.Find("Player").GetComponent<PlayerHealth>().currentHealth;

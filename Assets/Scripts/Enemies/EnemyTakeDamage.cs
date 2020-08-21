@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Generic script used on enemies for taking damage.
+/// </summary>
 public class EnemyTakeDamage : MonoBehaviour
 {
 
@@ -21,12 +24,12 @@ public class EnemyTakeDamage : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
-    //Modular so that all enemies can take damage.
+    //Recieves a damage value from the player and applies to this.
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
-
+        //Dies if health is 0.
         if (currentHealth <= 0)
         {
             Die();

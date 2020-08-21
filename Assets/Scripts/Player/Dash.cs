@@ -29,6 +29,7 @@ public class Dash : MonoBehaviour
     {
         CheckDash();
 
+        //Resets dash on touching the ground
         if (playerController.IsGrounded())
         {
             canDash = true;

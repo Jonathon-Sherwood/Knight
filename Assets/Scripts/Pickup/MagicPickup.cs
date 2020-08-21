@@ -14,11 +14,13 @@ public class MagicPickup : MonoBehaviour
         playerMagic = GameObject.Find("Player").GetComponent<PlayerMagic>();
     }
 
+    //Gives the player magic and destroys this object
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Invulnerable"))
         {
             playerMagic.currentMagic += magicValue;
+            AudioManager.instance.Play("Pickup");
             Destroy(this.gameObject);
         }
     }

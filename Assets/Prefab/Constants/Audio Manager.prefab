@@ -149,7 +149,7 @@ MonoBehaviour:
     mute: 0
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 50652aaa7ec7dbe4fa1ecc000f02b7e6, type: 3}
-    name: Health
+    name: Pickup
     volume: 0.304
     pitch: 2.071
     time: 0

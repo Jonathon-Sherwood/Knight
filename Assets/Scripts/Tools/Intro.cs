@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Intro : MonoBehaviour
 {
-    public float holdTime = 5f; //Adjustable amount of time for the designer in the inspector.
+    public float holdTime = 5f; //How long before the scene automatically loads the next.
 
     void Start()
     {

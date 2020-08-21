@@ -43,7 +43,7 @@ public class EnemyBat : MonoBehaviour
             directionToLook = targetPosition - transform.position;
             reflectedTime = reflectTime;
         }
-        //Reflects away from the player and waits until the player is vulnerable again
+        //Reflects away from the player and waits until the player is vulnerable again on successful hit
         else if (player.GetComponent<PlayerHealth>().invulnerable && touch)
         {
             reflectedTime--;

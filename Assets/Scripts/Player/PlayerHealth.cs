@@ -46,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    //Called by enemy scripts to apply damage to player health
     public void TakeDamage(int damage, Vector2 direction)
     {
         if (currentHealth > 1)
@@ -54,7 +55,6 @@ public class PlayerHealth : MonoBehaviour
             rb.velocity = new Vector2(Mathf.Sign(direction.normalized.x) * deathKick * 0.2f, 5f);
             StartCoroutine(Stunned());
             StartCoroutine(Invulnerability());
-            //AudioManager.instance.Play("PlayerHit");
         }
 
         currentHealth -= damage;
@@ -83,17 +83,19 @@ public class PlayerHealth : MonoBehaviour
         invulnerable = false;
     }
 
+    //Stops the player from moving after taking damage
     public IEnumerator Stunned()
     {
         playerController.canMove = false;           //Stops the player from moving
         rb.sharedMaterial = frictionPhysics;        //Changes the physics to high friction for no sliding.
         rb.gravityScale = 6;                        //Increases the gravity so there is no float.
         yield return new WaitForSeconds(stunTime);  //Keeps these changes for a set amount of time.
-        rb.gravityScale = originalGravity;          //Returns each fact to normal.
+        rb.gravityScale = originalGravity;          //Returns each element to normal.
         rb.sharedMaterial = currentPhysics;
         playerController.canMove = true;
     }
 
+    //Called on taking damage without enough health
     void Die(Vector2 direction)
     {
         invulnerable = true;
@@ -101,7 +103,6 @@ public class PlayerHealth : MonoBehaviour
         died = true;
         //Removes animator so that sprite can be manually swapped, then knocks player back the direction they were hit from
         anim.enabled = false;
-        //AudioManager.instance.Play("PlayerDeath");
         rb.velocity = new Vector2(Mathf.Sign(direction.normalized.x) * deathKick, 10f);
         rb.drag = 5f;
         rb.gravityScale = 10;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MenuCameraMover : MonoBehaviour
 {
-    public float panSpeed;
+    public float panSpeed; //Moves the camera to look like running
 
     // Update is called once per frame
     void Update()
